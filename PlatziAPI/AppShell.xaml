@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="PlatziAPI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:PlatziAPI"
+    xmlns:view="clr-namespace:PlatziAPI.Views"
+    
+    Shell.FlyoutBehavior="Disabled"
+    Title="PlatziAPI">
+    <ShellContent ContentTemplate="{DataTemplate view:NewPage1}" Route="Page1"></ShellContent>
+       <!--<ShellContent ContentTemplate="{DataTemplate view:VerPreductoView}" Route="ProductoView" ></ShellContent>-->
+    <ShellContent ContentTemplate="{DataTemplate view:AgregarView}" Route="AgregarProducto"></ShellContent>
+    <!--<ShellContent ContentTemplate="{DataTemplate view:EditarView}" Route="EditarProducto"></ShellContent>-->
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate view:NewPage1}"
+        Route="MainPage" />
+
+</Shell>

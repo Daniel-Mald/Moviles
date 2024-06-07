@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlatziAPI.Views.NewPage1"
+             xmlns:vm="clr-namespace:PlatziAPI.ViewModels"
+             Title="NewPage1">
+    <!--<ContentPage.BindingContext>
+        <vm:PlatzyViewModel></vm:PlatzyViewModel>
+    </ContentPage.BindingContext>-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".2*"></RowDefinition>
+            <RowDefinition Height=".8*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0">
+            <Label>Productos de platzy</Label>
+           
+            <Button Command="{Binding VerAgregarCommand}" Text="Agregar un producto"></Button>
+        </StackLayout>
+        
+        <ScrollView Grid.Row="1" WidthRequest="600">
+
+            <HorizontalStackLayout Margin="10" >
+
+
+                <CollectionView ItemsLayout="VerticalGrid,2 " ItemsSource="{Binding Productos}" Background="Transparent" WidthRequest="600" Margin="5">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout WidthRequest="200" HeightRequest="250" Margin="10" Background="Gray"  Padding="10"  >
+                                <ImageButton Source="{Binding Images[0]}"  Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}},Path=BindingContext.VerProductoCommand}" CommandParameter="{Binding Id}"    WidthRequest="100"  HeightRequest="100" Scale="0.8" Aspect="AspectFit"></ImageButton>
+                                <Label FontSize="10" Text="{Binding Title}"></Label>
+                                <Grid HeightRequest="30">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".5*"></ColumnDefinition>
+                                        <ColumnDefinition Width=".5*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Grid.Column="0" Text="Editar" Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}},Path=BindingContext.VerEditarCommand}" CommandParameter="{Binding Id}"></Button>
+                                    <Button Grid.Column="1" Text="Eliminar" Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}},Path=BindingContext.VerEliminarCommand}" CommandParameter="{Binding Id}"></Button>
+                                </Grid>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
+
+            </HorizontalStackLayout>
+
+        </ScrollView>
+    </Grid>
+    
+</ContentPage>

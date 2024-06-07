@@ -19,5 +19,15 @@ namespace JokeApp.Services
             var categoryData = Newtonsoft.Json.JsonConvert.DeserializeObject<CategoriesData>(json);
             return categoryData.Categories;
         }
+        public async Task<string> GetJoke(string category)
+        {
+            client = new HttpClient();
+            var respuesta = await client.GetAsync($"{url}joke/{category}"); 
+            respuesta.EnsureSuccessStatusCode();
+            var json = await respuesta.Content.ReadAsStringAsync();
+            var JokeData = Newtonsoft.Json.JsonConvert.DeserializeObject<JokeData> (json);
+            return (JokeData.Type == "single" ? JokeData.Joke :
+                $"{JokeData.SetUp} {JokeData.Delivery}");
+        }
     }
 }

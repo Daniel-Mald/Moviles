@@ -1,4 +1,6 @@
-﻿namespace JokeApp
+﻿using JokeApp.VIews;
+
+namespace JokeApp
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new MainView();
         }
     }
 }

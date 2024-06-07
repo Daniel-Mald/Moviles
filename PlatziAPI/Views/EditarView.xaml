@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlatziAPI.Views.EditarView"
+             Title="EditarView"
+             xmlns:vm ="clr-namespace:PlatziAPI.ViewModels"
+             x:DataType="vm:PlatzyViewModel">
+    <VerticalStackLayout>
+        <Label Text="Nombre"></Label>
+        <Entry Text="{Binding Producto.Title}"></Entry>
+        <Label Text="Descripcion"></Label>
+        <Entry Text="{Binding Producto.Description}"></Entry>
+        <Label Text="Precio"></Label>
+        <Entry Text="{Binding Producto.Price}"></Entry>
+        <Button Text="Agregar" Command="{Binding EditarCommand}" ></Button>
+        <!--<Label Text="Imagen"></Label>
+ <Entry Text="{Binding new{I}"></Entry>-->
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:RickAndMorty.ViewModels"
+             x:Class="RickAndMorty.Views.NewPage1"
+             Title="NewPage1">
+    <ContentPage.BindingContext>
+        <vm:RMViewModel></vm:RMViewModel>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <Label HeightRequest="100" Text="{Binding Mensaje}"></Label>
+        <CollectionView ItemsSource="{Binding Personajes}"  Background="Red">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                             Span="2" />
+                
+            </CollectionView.ItemsLayout>
+           
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <StackLayout Orientation="Horizontal">
+                        
+                    <Label Text="{Binding Name}" Margin="5" Padding="10" BackgroundColor="LightGray"/>
+                        <Image Source="{Binding image}" HeightRequest="100" VerticalOptions="Center"></Image>
+                    </StackLayout>
+                    
+                       
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+        </ScrollView>
+</ContentPage>
